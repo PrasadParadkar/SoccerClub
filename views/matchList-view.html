@@ -1,0 +1,51 @@
+<!--<div class="row" ng-init="matchCtrl.loadAllMatches()">
+  <div class="col-md-4" ng-repeat="match in matchCtrl.matcheslist">
+    <div class="card green darken-1 img-responsive" style="height: 150px;background: url('img/7.jpg') no-repeat;">
+      <div class="card-content white-text">
+        <h3 class="card-title">{{match.team1.name}}</h3>
+      </div>
+    </div>
+  </div>
+</div>-->
+<div class="container-fluid" style="background: url('img/17.png'); background-color: #34495E">
+  <br/><br/>
+  <div class="row">
+    <div class="col-md-12 col-lg-12">
+      <ul class="collapsible popout" data-collapsible="accordion" ng-init="mainCtrl.loadAllMatches()">
+        <li ng-repeat="match in matchCtrl.matcheslist">
+          <div class="collapsible-header center img-responsive" style="background:url('img/9.jpg') no-repeat;">
+            <div class="row">
+              <div class="col-md-5">
+                <h5 class="headingColor">{{match.team1.name}}</h5>
+              </div>
+              <div class="col-md-2">
+                <h4 class="headingColor">VS</h4>
+              </div>
+              <div class="col-md-5">
+                <h5 class="headingColor">{{match.team2.name}}</h5>
+              </div>
+            </div>
+          </div><!--</collapsible-header>-->
+
+          <div class="collapsible-body center" style="background-color: black;">
+            <div class="row">
+              <div class="col-md-5">
+                <h2 class="headingColor">{{match.score1}}</h2>
+              </div>
+              <div class="col-md-offset-2 col-md-5">
+                <h2 class="headingColor">{{match.score2}}</h2>
+              </div>
+            </div>
+            <span>
+              <a ng-href="#/{{match.team1.key}}/{{match.team2.key}}/{{match.date}}" class="right">Click for detail &#x2192;</a>     
+            </span>
+          </div><!--</collapsible-body>-->
+        </li>
+      </ul>
+    </div>
+  </div>
+</div><!--</container-fluid>-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

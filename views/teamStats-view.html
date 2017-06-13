@@ -1,0 +1,83 @@
+
+<div class="container-fluid" style="background: url('img/17.png'); background-color: #34495E">
+<br/><br/>
+<div class="container" ng-init="teamStatsCtrl.loadTeamStatistics()">
+	<div class="row">
+		<div class="col-lg-5">
+			<div class="form-group">
+				<select class="form-control center" id="dropdownLeague" style="background-color: #26a69a; color: #fff;">
+					<option value="2015">ENGLISH PREMIER LEAGUE 2015/16</option>
+					<option value="2016">ENGLISH PREMIER LEAGUE 2016/17</option>
+				</select>
+			</div>
+		</div>
+		<div id="dropdownTeamStats" class="col-lg-2">
+			<div class="dropdown">
+		        <button class="btn btn-default dropdown-toggle waves-effect waves-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+		            <p id="chooseTeamStats"></p>
+		        </button>
+		        <ul class="dropdown-menu" aria-labelledby="dropdownTeamStats">
+		            <li ng-repeat="teamStats in teamStatsCtrl.selectTeamStats"><a ng-click="teamStatsCtrl.teamSelectedForStats(teamStats)">{{teamStats}}</a></li>
+		        </ul>
+		    </div>
+		</div>
+	</div>
+
+	<br/><br/>
+	<div id="allTeamStats" class="ng-show">
+		<table ng-table="teamStatsTable" id="myTable" class="table table-hover table-responsive" cellspacing="0" width="100%"> 
+			<thead style="background-color: black;">
+				<tr style="color: white" class="center">
+					<th class="center">TEAMS</th>
+					<th class="center" title="Played">PLD</th>
+					<th class="center">W</th>
+					<th class="center">D</th>
+					<th class="center">L</th>
+					<th class="center">GF</th>
+					<th class="center">GA</th>
+					<th class="center">GD</th>
+					<th class="center">PTS</th>
+				</tr>
+			</thead>
+			<tbody>
+			    <tr ng-repeat="stats in teamStatsCtrl.teamMatchesHistory | orderBy:'-points'">
+			        <td class="center">{{stats.team}}</td>
+			        <td class="center">{{stats.total}}</td>
+			        <td class="center">{{stats.win}}</td>
+			        <td class="center">{{stats.tie}}</td>
+			        <td class="center">{{stats.lose}}</td>
+			        <td class="center">{{stats.goals}}</td>
+			        <td class="center">{{stats.goalsAgainst}}</td>
+			        <td class="center">{{stats.goalsDiff}}</td>
+			        <td class="center">{{stats.points}}</td>
+			    </tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div id="divEachTeamStats" class="ng-hide">
+		<table ng-table="eachTeamStatsTable" id="myTable" class="table table-responsive" cellspacing="0" width="100%">
+			<tbody>
+			    <tr ng-repeat="eachTeam in teamStatsCtrl.eachTeamStats">
+			        <th class="center"><p>{{eachTeam.team1.name}}</p></th>
+			        <td class="center"><p>{{eachTeam.score1}}</p></td>
+			        <td class="center"><p>-</p></td>
+			        <td class="center"><p>{{eachTeam.score2}}</p></td>
+			        <th class="center"><p>{{eachTeam.team2.name}}</p></th>
+			    </tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+
+<style>
+	.table th, .table td { 
+     border-top: none !important; 
+     color: white;
+ 	}
+
+ 	.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  		color: black;
+	}
+</style>

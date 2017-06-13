@@ -1,0 +1,165 @@
+<div class="container-fluid" style="background: url('img/17.png'); background-color: #34495E">
+<div>
+	<!--<form class="form-inline">#1A5276
+      <input ng-model="query" type="text"
+        placeholder="Filter by" autofocus>
+    </form>-->
+<!--<form id="bootstrapSelectForm" method="post" class="form-horizontal">
+    <div class="form-group">
+    	<div class="row">
+	        <div class="col-lg-3 selectContainer">
+	            <select class="form-control selectpicker btn-primary show-tick" data-style="btn-primary">
+				  <option>English Premier League 2015/16</option>
+				  <option>English Premier League 2016/17</option>
+				</select>
+	        </div>
+	    </div>
+    </div>
+</form>-->
+<!--<div class="row">
+	<div class="input-field col-lg-4">
+	    <select id="pp">
+	      <option selected value="1">English Premier League 2015/16</option>
+	      <option value="2">English Premier League 2016/17</option>
+	    </select>
+	    <label>Select A League</label>
+	</div>
+</div>-->
+
+<br/>
+<div class="row">
+	<div class="col-lg-3">
+		<div class="form-group">
+			<select class="form-control center" id="leagueDropdown" style="background-color: #26a69a; color: #fff;">
+				<option value="2015">ENGLISH PREMIER LEAGUE 2015/16</option>
+				<option value="2016">ENGLISH PREMIER LEAGUE 2016/17</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="col-lg-2">
+		<div class="btn-group">
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			Filter By <span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu">
+				<li><a ng-click="allMatchCtrl.optionSelected(1)">Team</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a ng-click="allMatchCtrl.optionSelected(2)">Score</a></li>
+				<li role="separator" class="divider"></li>
+				<li><a ng-click="allMatchCtrl.optionSelected(3)">Year</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="dropdownTeam" class="col-lg-3">
+		<div class="dropdown">
+	        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	            <p id="chooseTeam"></p>
+	        </button>
+	        <ul class="dropdown-menu" aria-labelledby="dropdownTeam">
+	            <li ng-repeat="team in allMatchCtrl.selectTeam"><a ng-click="allMatchCtrl.teamSelected(team)">{{team}}</a></li>
+	        </ul>
+	    </div>
+	</div>
+
+	<div id="dropdownScore" class="col-lg-2">
+	    <div class="dropdown">
+	        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	            <p id="chooseScore"></p>
+	        </button>
+	        <ul class="dropdown-menu" aria-labelledby="dropdownScore">
+	            <li ng-repeat="score in allMatchCtrl.selectScore"><a ng-click="allMatchCtrl.scoreSelected(score)">{{score}}</a></li>
+	        </ul>
+	    </div>
+	</div>
+
+	<div id="dropdownYear" class="col-lg-2">
+	    <div class="dropdown">
+	        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+	            <p id="chooseYear"></p>
+	        </button>
+	        <ul class="dropdown-menu" aria-labelledby="dropdownScore">
+	            <li ng-repeat="year in allMatchCtrl.selectYear"><a ng-click="allMatchCtrl.yearSelected(year)">{{year}}</a></li>
+	        </ul>
+	    </div>
+	</div>
+</div>
+	
+	<div class="container">
+		<table ng-table="matchTable" id="myTable" class="table table-hover table-responsive" cellspacing="0" width="100%">
+			<tbody>
+			    <tr ng-repeat="all in allMatchCtrl.allMatch | filter:allMatchCtrl.filterTeamName | filter:allMatchCtrl.filterScore:allMatchCtrl.filterCondition | filter:allMatchCtrl.filterYear">
+			        <th class="left">{{all.team1.name}}</th>
+			        <th class="center">{{all.score1}} - {{all.score2}}</th>
+			        <th class="right">{{all.team2.name}}</th>
+			    </tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!--<ul ng-repeat="all in allMatchCtrl.allMatch | filter:allMatchCtrl.filterTeamName | filter:allMatchCtrl.filterScore:true | filter:allMatchCtrl.filterYear">
+		<li>
+			<div class="container center">
+				<div class="row">
+	              <div class="col-md-5">
+	                <h5>{{all.team1.name}}</h5>
+	              </div>
+	              <div class="col-md-2">
+	                <h4>VS</h4>
+	              </div>
+	              <div class="col-md-5">
+	                <h5>{{all.team2.name}}</h5>
+	              </div>
+	            </div>
+	            <div class="row">
+	              <div class="col-md-5">
+	                <h5>{{all.score1}}</h5>
+	              </div>
+	              <div class="col-md-offset-2 col-md-5">
+	                <h5>{{all.score2}}</h5>
+	              </div>
+	            </div>
+            </div>
+		</li>
+	</ul>-->
+
+</div>
+</div>
+
+<style>
+	.table th, .table td { 
+     border-top: none !important; 
+ 	}
+  	tr:nth-child(odd) {
+    	background-color:#f1f1f1;
+	}
+	tr:nth-child(even) {
+	    background-color:#e6e6e6;
+	}
+	#myTable tr{
+		height: 50px;
+	}
+</style>
+
+<!--<li>
+			<h4>{{all.team1.name}}</h4> <h3>VS</h3> <h4>{{all.team2.name}}</h4><br/>{{all.score1}}  {{all.score2}}
+		</li>-
+
+
+<script>
+     $(document).ready(function() {
+     	$(".caret").hide();
+        $('select').material_select();
+    });
+</script>
+
+<style>
+	select{
+        /*for firefox*/
+        -moz-appearance: none;
+        text-overflow: '';
+        /*for chrome*/
+        -webkit-appearance:none;
+      }
+</style>-->

@@ -1,0 +1,52 @@
+<div class="container-fluid" style="background:url('img/10.jpg');">
+	<br/>
+	<div class="row">
+		<div class="col-lg-12 col-md-12">
+			<center><h4 class="matchStatus" style="color: white;"></h4></center>
+		</div>
+	</div>
+
+	<div class="row">
+	    <div class="col-md-5">
+	     	<div class="card">
+		        <div class="card-image">
+					<img src="img/1.jpg">
+					<span class="card-title">{{singleMatchCtrl.singleMatch.team1.name}}</span>
+		        </div>
+		        <div id="team1Status" class="card-content">
+		        	<p id="lblDetail1"></p>
+		        </div>
+	    	</div>
+	    </div>
+
+	    <div class="col-md-2">
+			<div class="card">
+				<div class="card-content" style="background: transparent;">
+					<center>
+						<h4 id="goalScore" style="margin-top: 30px"></h4>
+					</center>
+				</div>
+			</div>
+
+			<div class="card">
+				<div class="card-content center">
+					<h4>{{singleMatchCtrl.singleMatch.date | date:'d'}}</h4>
+					<h4>{{singleMatchCtrl.singleMatch.date | date:'MMM'}}</h4>
+					<h4>{{singleMatchCtrl.singleMatch.date | date:'yyyy'}}</h4>
+				</div>
+			</div>
+	    </div>
+
+	    <div class="col-md-5">
+	    	<div class="card">
+	        	<div class="card-image">
+	        		<img src="img/1.jpg">
+	        		<span class="card-title">{{singleMatchCtrl.singleMatch.team2.name}}</span>
+	        	</div>
+	        	<div id="team2Status" class="card-content">
+	        		<p id="lblDetail2"></p>
+	        	</div>
+	     	</div>
+		</div>
+	</div>
+</div>

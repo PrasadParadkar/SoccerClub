@@ -1,0 +1,155 @@
+<div class="container-fluid" style="background: url('img/17.png'); background-color: #34495E">
+	<br/><br/>
+	<div class="row">
+		<div class="col-lg-3">
+				<br/><br/><br/>
+				<div class="form-group">
+					<select class="form-control center" id="dropdownLeague" style="background-color: #26a69a; color: #fff;">
+						<option value="2015">ENGLISH PREMIER LEAGUE 2015/16</option>
+						<option value="2016">ENGLISH PREMIER LEAGUE 2016/17</option>
+					</select>
+				</div>
+			<!--<div class="btn-group-vertical" role="group">
+				<button id="league2015" class="btn btn-block waves-effect waves-light active" style="height: 60px;"
+				ng-click="teamStatsCtrl.decideURL(2015)" >English Premier League 2015/16</button><br/>
+	  			<button id="league2016" class="btn btn-block waves-effect waves-light" style="height: 60px;"
+	  			ng-click="teamStatsCtrl.decideURL(2016)" >English Premier League 2016/17</button>
+			</div>-->
+		</div>
+		<div class="col-lg-offset-1 col-lg-8">
+			<div id="league15">
+				<div class="container-fluid">
+					<!--<div class="jumbotron">
+						<div class="row">
+							<div class="col-lg-3 center">
+								<img src="img/totalMatch.png"/><br/>
+								<span class="count">{{teamStatsCtrl.totalMatches}}</span><br/>
+								<h5>Matched Played</h5>
+							</div>
+							<div class="col-lg-3 center">
+								<img src="img/teams.png"/><br/>
+								<span class="count">{{teamStatsCtrl.totalTeams}}</span><br/>
+								<h5>Total Teams</h5>
+							</div>
+						</div>
+					</div><!-</Jumbotron/>-->
+					<div>
+						<div class="page-header">
+							<h4>Most Goals Scored By The Team</h4>      
+						</div>
+						<table ng-table="mostGoalsTable" class="table table-responsive" cellspacing="0" width="100%"> 
+							<thead style="background-color: black;">
+								<tr style="color: white" class="center">
+									<th class="center">TEAMS</th>
+									<th class="center" title="Played">MOST GOALS</th>
+								</tr>
+							</thead>
+							<tbody>
+							    <tr ng-repeat="stats in teamStatsCtrl.teamMatchesHistory | orderBy:'-goals' | limitTo:5">
+							        <td class="center">{{stats.team}}</td>
+							        <td class="center">{{stats.goals}}</td>
+							    </tr>
+							</tbody>
+						</table>
+					</div><!-- end of div for mostGoalstable-->
+					<div>
+						<div class="page-header">
+							<h4>Most Wins By The Team</h4>      
+						</div>
+						<table ng-table="mostWinsTable" class="table table-responsive" cellspacing="0" width="100%"> 
+							<thead style="background-color: black;">
+								<tr style="color: white" class="center">
+									<th class="center">TEAMS</th>
+									<th class="center" title="Played">MOST WINS</th>
+								</tr>
+							</thead>
+							<tbody>
+							    <tr ng-repeat="stats in teamStatsCtrl.teamMatchesHistory | orderBy:'-win' | limitTo:5">
+							        <td class="center">{{stats.team}}</td>
+							        <td class="center">{{stats.win}}</td>
+							    </tr>
+							</tbody>
+						</table>
+					</div><!-- end of div for mostWinstable-->
+				</div><!--</container-fluid-->
+			</div><!--</league15-->
+		</div>
+	</div>
+</div>
+
+<style>
+	.table th, .table td { 
+     border-top: none !important; 
+     color: white;
+ 	}
+
+	/*.text-break{
+		white-space: normal;
+	}*/
+
+	h4{
+		color: white;
+	}
+</style>
+
+<script>
+	jQuery(document).ready(function($) {
+		$('.count').each(function () {
+    		$(this).prop('Counter',0).animate({
+        		Counter: $(this).text()
+    		}, {
+        			duration: 1500,
+        			easing: 'swing',
+        			step: function (now) {
+            			$(this).text(Math.ceil(now));
+        			}
+    			});
+		});
+	});
+</script>
+
+<!--<div>
+	<div id="shiva"><span class="count">200</span></div>
+	<div id="shiva"><span class="count">1000</span></div>
+	<div id="shiva"><span class="count">853</span></div>
+	<div id="shiva"><span class="count">154</span></div>
+	<div id="shiva"><span class="count">10</span></div>
+	<div id="shiva"><span class="count">87</span></div>
+</div>
+
+<script>
+	jQuery(document).ready(function($) {
+		$('.count').each(function () {
+    $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+    }, {
+        duration: 1000,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(Math.ceil(now));
+        }
+    });
+});
+	});
+</script>
+
+<style>
+	#shiva
+	{
+	  width: 100px;
+	    height: 100px;
+	    background: red;
+	    -moz-border-radius: 50px;
+	    -webkit-border-radius: 50px;
+	    border-radius: 50px;
+	  float:left;
+	  margin:5px;
+	}
+	.count
+	{
+	  line-height: 100px;
+	  color:white;
+	  margin-left:30px;
+	  font-size:25px;
+	}
+</style>-->
