@@ -1,4 +1,13 @@
 /*CSS for index.html*/
+.heading{
+    font-size: 5vmax;
+    font-weight: bold;
+}
+
+.navbar-nav>li>a{
+
+}
+
 .intro-header {
     background: center center no-repeat;
     -webkit-background-size: cover;
@@ -10,16 +19,15 @@
 }
 
 .intro-header .site-heading {
-    padding: 150px 0;
+    padding: 110px 0;
     color: #fff;
     text-align: center;
 }
 
 .intro-header .site-heading .subheading {
-    font-size: 24px;
+    font-size: 2.5vmax;
     line-height: 1.1;
     display: block;
-    font-weight: 300;
     margin: 10px 0 0;
 }
 
@@ -58,10 +66,16 @@ hr.small {
     border-radius: 30px;
 }
 
+.card-title{
+    font-size: 1.7vmax !important;
+    font-weight: bold !important;
+}
+
 .card-action a{
     text-decoration: none;
     color: black !important;
     font-weight: bold;
+    font-size: 1.2vmax;
 }
 
 .card-action a:hover{
@@ -82,39 +96,77 @@ hr.small {
 }
 
 #divMatchCard h3{
-    font-weight: bold;
+    font-weight: bold !important;
+    font-size: 1.6vmax !important;
 }
 
 /*CSS for matchList-view.html*/
 .headingColor{
     font-weight: bold;
     color: white;
+    font-size: 2vmax;
+}
+
+.versus{
+    font-weight: bold;
+    color: white;
+    font-size: 2.5vmax;
 }
 
 .collapsible-body a{
     text-decoration: none;
-    font-size: 15px;
+    font-size: 1.3vmax;
     font-weight: bold;
     color: white;
 }
 
 .collapsible-body a:hover{
-    font-size: 18px;
+    font-size: 1.4vmax;
 }
 
 /*CSS for singleMatch-view.html*/
+.matchStatus{
+    font-size: 1.8vmax;
+}
+
 #lblDetail1{
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1.4vmax;
     color: black;
 }
 
 #lblDetail2{
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1.4vmax;
     color: black;
 }
 
+#matchDate p{
+    font-size: 1.4vmax;
+    font-weight: bold;
+}
+
+#goalScore{
+    font-size: 1.4vmax;
+    font-weight: bold;
+}
+
+/*CSS for allMatches-view.html*/
+#myTable th{
+    font-size: 1.5vmax;
+}
+
+#myTable td{
+    font-size: 1.2vmax;
+}
+
+#tableContainer{
+    width: 60%;
+}
+
+.page-header{
+    font-size: 2vmax;
+}
 /*Media Queries*/
 @media screen and (min-width: 992px){
 
@@ -124,6 +176,16 @@ hr.small {
 
 }
 
-@media screen and (max-width: 767px){
+@media screen and (min-width: 480px) (max-width: 767px){
     
+}
+
+@media screen and (max-width: 479px){
+    #divMatchCard {
+        height: 100px;
+    }
+
+    #divMatchCard .card-content{
+        padding: 9px !important;
+    }
 }

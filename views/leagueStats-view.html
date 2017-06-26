@@ -37,7 +37,7 @@
 						<div class="page-header">
 							<h4>Most Goals Scored By The Team</h4>      
 						</div>
-						<table ng-table="mostGoalsTable" class="table table-responsive" cellspacing="0" width="100%"> 
+						<table id="myTable" ng-table="mostGoalsTable" class="table table-responsive" cellspacing="0" width="100%"> 
 							<thead style="background-color: black;">
 								<tr style="color: white" class="center">
 									<th class="center">TEAMS</th>
@@ -56,7 +56,7 @@
 						<div class="page-header">
 							<h4>Most Wins By The Team</h4>      
 						</div>
-						<table ng-table="mostWinsTable" class="table table-responsive" cellspacing="0" width="100%"> 
+						<table id="myTable" ng-table="mostWinsTable" class="table table-responsive" cellspacing="0" width="100%"> 
 							<thead style="background-color: black;">
 								<tr style="color: white" class="center">
 									<th class="center">TEAMS</th>
@@ -91,22 +91,6 @@
 		color: white;
 	}
 </style>
-
-<script>
-	jQuery(document).ready(function($) {
-		$('.count').each(function () {
-    		$(this).prop('Counter',0).animate({
-        		Counter: $(this).text()
-    		}, {
-        			duration: 1500,
-        			easing: 'swing',
-        			step: function (now) {
-            			$(this).text(Math.ceil(now));
-        			}
-    			});
-		});
-	});
-</script>
 
 <!--<div>
 	<div id="shiva"><span class="count">200</span></div>

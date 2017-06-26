@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="row">
-	    <div class="col-md-5">
+	    <div class="col-md-5 col-sm-5 col-xs-12">
 	     	<div class="card">
 		        <div class="card-image">
 					<img src="img/1.jpg">
@@ -19,25 +19,25 @@
 	    	</div>
 	    </div>
 
-	    <div class="col-md-2">
+	    <div class="col-md-2 col-sm-2 col-xs-12">
 			<div class="card">
 				<div class="card-content" style="background: transparent;">
 					<center>
-						<h4 id="goalScore" style="margin-top: 30px"></h4>
+						<p id="goalScore"></p>
 					</center>
 				</div>
 			</div>
 
 			<div class="card">
-				<div class="card-content center">
-					<h4>{{singleMatchCtrl.singleMatch.date | date:'d'}}</h4>
-					<h4>{{singleMatchCtrl.singleMatch.date | date:'MMM'}}</h4>
-					<h4>{{singleMatchCtrl.singleMatch.date | date:'yyyy'}}</h4>
+				<div id="matchDate" class="card-content center">
+					<p>{{singleMatchCtrl.singleMatch.date | date:'d'}}</p>
+					<p>{{singleMatchCtrl.singleMatch.date | date:'MMM'}}</p>
+					<p>{{singleMatchCtrl.singleMatch.date | date:'yyyy'}}</p>
 				</div>
 			</div>
 	    </div>
 
-	    <div class="col-md-5">
+	    <div class="col-md-5 col-sm-5 col-xs-12">
 	    	<div class="card">
 	        	<div class="card-image">
 	        		<img src="img/1.jpg">

@@ -1,7 +1,7 @@
 <div id="divMatchday" class="container-fluid" style="background: url('img/17.png'); background-color: #34495E">
 	<br/><br/>
 	<div class="row" ng-init="mainCtrl.loadAllScores()">
-	  <div class="col-md-4" ng-repeat="score in mainCtrl.scores">
+	  <div class="col-md-4 col-xs-6" ng-repeat="score in mainCtrl.scores">
 	    <a ng-href="#/matchlist"  ng-click="mainCtrl.getName(score.name)">
 		    <div id="divMatchCard" class="card darken-1 img-responsive" style="background: url('img/7.jpg') no-repeat;">
 		      <div class="card-content white-text">

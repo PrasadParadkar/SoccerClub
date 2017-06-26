@@ -26,9 +26,9 @@
 	</div>
 </div>-->
 
-<br/>
+<br/><br/>
 <div class="row">
-	<div class="col-lg-3">
+	<div class="col-lg-3 col-md-3 col-sm-3">
 		<div class="form-group">
 			<select class="form-control center" id="leagueDropdown" style="background-color: #26a69a; color: #fff;">
 				<option value="2015">ENGLISH PREMIER LEAGUE 2015/16</option>
@@ -37,7 +37,7 @@
 		</div>
 	</div>
 
-	<div class="col-lg-2">
+	<div class="col-lg-2 col-md-2 col-sm-2">
 		<div class="btn-group">
 			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			Filter By <span class="caret"></span>
@@ -52,7 +52,7 @@
 		</div>
 	</div>
 
-	<div id="dropdownTeam" class="col-lg-3">
+	<div id="dropdownTeam" class="col-lg-3 col-md-3 col-sm-3">
 		<div class="dropdown">
 	        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	            <p id="chooseTeam"></p>
@@ -63,7 +63,7 @@
 	    </div>
 	</div>
 
-	<div id="dropdownScore" class="col-lg-2">
+	<div id="dropdownScore" class="col-lg-2 col-md-2 col-sm-2">
 	    <div class="dropdown">
 	        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	            <p id="chooseScore"></p>
@@ -74,7 +74,7 @@
 	    </div>
 	</div>
 
-	<div id="dropdownYear" class="col-lg-2">
+	<div id="dropdownYear" class="col-lg-2 col-md-2 col-sm-2">
 	    <div class="dropdown">
 	        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 	            <p id="chooseYear"></p>
@@ -86,7 +86,7 @@
 	</div>
 </div>
 	
-	<div class="container">
+	<div id="tableContainer" class="container">
 		<table ng-table="matchTable" id="myTable" class="table table-hover table-responsive" cellspacing="0" width="100%">
 			<tbody>
 			    <tr ng-repeat="all in allMatchCtrl.allMatch | filter:allMatchCtrl.filterTeamName | filter:allMatchCtrl.filterScore:allMatchCtrl.filterCondition | filter:allMatchCtrl.filterYear">
