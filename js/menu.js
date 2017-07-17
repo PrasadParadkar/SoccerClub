@@ -1,8 +1,9 @@
 $(document).ready(function(){
     var $window = $(window);
-
+    var widthw;
     function checkWidth() {
         var windowsize = $window.width();
+        widthw = windowsize;
 
         if (windowsize < 420) {
             $(".navbar-toggle").addClass('hidden-xs');
@@ -39,8 +40,10 @@ $(document).ready(function(){
     });
     
     $("#websiteName").click(function(e) {
-        $("#wrapper").toggleClass("active");
-        $("#websiteName").toggleClass('hidden-xs');
+        if(widthw<420){
+            $("#wrapper").toggleClass("active");
+            $("#websiteName").toggleClass('hidden-xs');
+        }
     });
 
     checkWidth();
