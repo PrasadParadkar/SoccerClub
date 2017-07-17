@@ -29,27 +29,7 @@ myApp.controller('MainController',['$http',function($http){
 				}).then(function successCallback(response) {
 					// this callback will be called asynchronously
 					// when the response is available
-					//console.log(response.data.rounds);
 					main.scores = response.data.rounds;
-					/*jQuery.each(response.data.rounds,function(i,val1){
-						if(val1.name == "Matchday 2"){
-							main.results = val1.matches;
-							console.log(results);
-						}
-					jQuery.each(response.data.rounds[i].matches,function(j,val2){
-							var ppp=[];
-							ppp=val2;
-							//ppp=jQuery.makeArray(val2);
-							console.log(ppp);
-							for(size in val2)
-							{
-
-							}
-							jQuery.each(response.data.rounds[i].matches[j],function(k,val3){
-							
-					    });
-					  });
-					});*/
 					}, function errorCallback(response) {
 						// called asynchronously if an error occurs
 						// or server returns response with an error status.
@@ -61,7 +41,6 @@ myApp.controller('MainController',['$http',function($http){
 	main.getName = function(name){
 		strMatchday = name;
 	}
-	//this.loadAllScores();
 }]); // end MainController
 
 //Declaration of MatchController
@@ -75,12 +54,9 @@ myApp.controller('MatchController',['$http',function($http){
 			method: 'GET',
 			url: main.baseUrl1
 			}).then(function successCallback(response) {
-				//console.log(response);
 				jQuery.each(response.data.rounds,function(i,val1){
-					//console.log(val1.matches);*
 					if(val1.name == strMatchday){
 						main.matcheslist = val1.matches;
-						//console.log(matcheslist);
 					}
 				});
 				}, function errorCallback(response) {
@@ -97,7 +73,6 @@ myApp.controller('MatchController',['$http',function($http){
 //Declaration of SingleMatchController
 myApp.controller('SingleMatchController',['$http','$routeParams',function($http,$routeParams){
 	var main = this;
-	//this.singleMatch = [];
 	this.baseUrl1 = url;
 	main.key1 = $routeParams.key1;
 	main.key2 = $routeParams.key2;
@@ -114,9 +89,7 @@ myApp.controller('SingleMatchController',['$http','$routeParams',function($http,
 				jQuery.each(response.data.rounds[i].matches,function(j,val2){
 					if(val2.team1.key==main.key1 && val2.team2.key==main.key2 && val2.date==main.date1)
 					{
-						//alert("True");
 						main.singleMatch = val2;
-						//console.log(main.singleMatch);
 						if(main.singleMatch.score1 == main.singleMatch.score2)
 						{
 							$('.matchStatus').text(main.singleMatch.team1.name + ' tied the game with ' + main.singleMatch.team2.name);
@@ -162,7 +135,6 @@ myApp.controller('AllMatchController',['$http',function($http){
 
 	var main=this;
 	this.allMatch = [];
-  	//this.baseUrl1 = league2015URL;
 
   	main.selectTeam = [];
   	main.selectScore = [];
@@ -208,8 +180,6 @@ myApp.controller('AllMatchController',['$http',function($http){
 					});
 					main.allMatch.splice(main.tempVar, 1);
 
-					//var singleTeam = [];
-
 					var dupes = {};
 
 					//Function to get unique team names
@@ -222,8 +192,7 @@ myApp.controller('AllMatchController',['$http',function($http){
 					    }
 					});
 					main.selectTeam.sort();
-					main.selectTeam.unshift("Select a Team");
-					//console.log(main.selectTeam);
+					main.selectTeam.unshift("Select Team");
 
 					//Function to get unique score values
 					main.selectScore.length=0;
@@ -234,10 +203,8 @@ myApp.controller('AllMatchController',['$http',function($http){
 					        main.selectScore.push(el.score2);
 					    }
 					});
-					//main.selectScore.pop();
 					main.selectScore.sort();
-					main.selectScore.unshift("Select a Score");
-					//console.log(main.selectScore);
+					main.selectScore.unshift("Select Score");
 
 					//Function to get unique year
 					main.selectYear.length=0;
@@ -248,8 +215,7 @@ myApp.controller('AllMatchController',['$http',function($http){
 					        main.selectYear.push(parseInt(el.date));
 					    }
 					});
-					main.selectYear.unshift("Select a Year");
-					//console.log(main.selectYear);
+					main.selectYear.unshift("Select Year");
 					
 					//Function to filter data by selected team
 					$('#chooseTeam').html(main.selectTeam[0]);
@@ -284,67 +250,25 @@ myApp.controller('AllMatchController',['$http',function($http){
 					        $('#chooseScore').html(main.selectedScoreByDropdown);
 					        main.filterScore=main.selectedScoreByDropdown;
 					        main.filterCondition = true;
-					        //console.log(main.selectedScoreByDropdown);
 					    }
 				    }
 
-				    //Function to filter data by selected year
-				    $('#chooseYear').html(main.selectYear[0]);
-					main.selectedYearByDropdown = "";
-					main.yearSelected = function (item) {
-						if(item=="Select a Year")
-						{
-							main.filterYear="";
-							$('#chooseYear').html(main.selectYear[0]);
-						}
-						else
-				        {
-					        main.selectedYearByDropdown = item;
-					        $('#chooseYear').html(main.selectedYearByDropdown);
-					        main.filterYear=main.selectedYearByDropdown;
-					        //console.log(main.selectedScoreByDropdown);
-					    }
-				    }
-
-				    /*for (element in dupes) {
-          				delete dupes[element];
-          			}*/
-
-					/*jQuery.each(response.data.rounds,function(i,val1){
-						jQuery.each(response.data.rounds[i].matches,function(j,val2){
-							//console.log(response.data.rounds[i].matches);
-							//console.log(val2);
-							//main.allMatch=jQuery.makeArray(val2);
-							//console.log(response.data.rounds[i].matches);
-
-							//console.log(jQuery.type(val2))
-							//console.log(Object.values(val2));
-							//var temp = []
-							//temp.push(val2);
-							//main.allMatch=Object.values(val2);
-							//console.log(temp.pop());
-							//temp = temp.pop();
-							//console.log(jQuery.type(temp.pop()));
-							//main.allMatch=temp.pop();
-							//main.allMatch=jQuery.makeArray(temp.pop());
-							//console.log(main.allMatch[0].score1);
-							/*main.allMatch = val2;
-							
-							for(i in response.data.rounds[i].matches[i]){
-								main.allMatch.push(i);
+					    //Function to filter data by selected year
+					    $('#chooseYear').html(main.selectYear[0]);
+						main.selectedYearByDropdown = "";
+						main.yearSelected = function (item) {
+							if(item=="Select a Year")
+							{
+								main.filterYear="";
+								$('#chooseYear').html(main.selectYear[0]);
 							}
-
-							main.allMatch = $.map(val2,function(i, obj) {
-								return obj;
-							})
-							console.log(response.data.rounds[i].matches);
-							/*jQuery.each(response.data.rounds[i].matches[j],function(k,val3){
-								all=val2;
-								console.log(all);
-
-					    	});
-					  	});
-					});*/
+							else
+					        {
+						        main.selectedYearByDropdown = item;
+						        $('#chooseYear').html(main.selectedYearByDropdown);
+						        main.filterYear=main.selectedYearByDropdown;
+						    }
+					    }
 					}, function errorCallback(response) {
 						// called asynchronously if an error occurs
 						// or server returns response with an error status.
@@ -364,7 +288,6 @@ myApp.controller('AllMatchController',['$http',function($http){
 			$('#dropdownTeam').toggle();
 			$('#chooseTeam').html(main.selectTeam[0]);
 			main.filterTeamName="";
-			//alert(parseInt('2015-08-08'));
 		}
 		else if(num==2){
 			$('#dropdownScore').toggle();
@@ -385,7 +308,6 @@ myApp.controller('AllMatchController',['$http',function($http){
 myApp.controller('TeamStatsController',['$http', function($http){
 
 	var main=this;
-  	//this.baseUrl1 = league2015URL;
 
   	main.allMatch = [];
   	main.selectTeamStats = [];
@@ -478,12 +400,10 @@ myApp.controller('TeamStatsController',['$http', function($http){
 							{
 								main.teamStatsArray.push(match);
 							}
-							//console.log(main.teamStatsArray);
 						});
 						main.objTeamStatistics[team]=main.teamStatsArray;
 						main.teamStatsArray=[];
 					});
-					//console.log(main.objTeamStatistics);
 
 					//Function to get each team matches history
 					main.teamScore;
@@ -491,7 +411,6 @@ myApp.controller('TeamStatsController',['$http', function($http){
 					main.totalMatchCount = 0;
 					main.teamMatchesHistory.length = 0;
 					 jQuery.each(main.objTeamStatistics, function(i, val1) {
-					 	//console.log(val1);
 					 	main.totalMatchCount = val1.length;
 					 	main.winCount = 0;
 					 	main.tieCount = 0;
@@ -521,8 +440,6 @@ myApp.controller('TeamStatsController',['$http', function($http){
 							if(main.teamScore < main.oppTeamScore){
 								main.lostCount = main.lostCount+1;
 							}
-							
-
 						});
 						main.objTemp["team"] = i;
 						main.objTemp["total"] = main.totalMatchCount;
@@ -546,24 +463,4 @@ myApp.controller('TeamStatsController',['$http', function($http){
 	} // end load team statistics
 
 	this.loadTeamStatistics(league2015URL);
-
-	/*main.decideURL = function(sel){
-		if(sel == 2015){
-			main.loadTeamStatistics(league2015URL);
-		}
-		if(sel == 2016){
-			main.loadTeamStatistics(league2016URL);
-		}
-	}*/
-
-	/*$('#league2015').on('click', function() {
-  		alert("Y");
-  		main.loadTeamStatistics(league2015URL);
-  	});
-
-  	$('#league2016').on('click', function() {
-  		alert("Y");
-  		main.loadTeamStatistics(league2016URL);
-  	});*/
-
 }])

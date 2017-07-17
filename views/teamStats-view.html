@@ -2,7 +2,7 @@
 <br/><br/>
 <div class="container" ng-init="teamStatsCtrl.loadTeamStatistics()">
 	<div class="row">
-		<div class="col-lg-5">
+		<div class="col-lg-5 col-md-5 col-sm-5">
 			<div class="form-group">
 				<select class="form-control center" id="dropdownLeague" style="background-color: #26a69a; color: #fff;">
 					<option value="2015">ENGLISH PREMIER LEAGUE 2015/16</option>
@@ -10,7 +10,7 @@
 				</select>
 			</div>
 		</div>
-		<div id="dropdownTeamStats" class="col-lg-2">
+		<div id="dropdownTeamStats" class="col-lg-2 col-md-2 col-sm-2">
 			<div class="dropdown">
 		        <button class="btn btn-default dropdown-toggle waves-effect waves-light" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 		            <p id="chooseTeamStats"></p>
@@ -21,6 +21,7 @@
 		    </div>
 		</div>
 	</div>
+</div>
 
 	<br/><br/>
 	<div id="allTeamStats" class="ng-show">
@@ -67,7 +68,7 @@
 			</tbody>
 		</table>
 	</div>
-</div>
+
 </div>
 
 <style>
@@ -80,3 +81,7 @@
   		color: black;
 	}
 </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

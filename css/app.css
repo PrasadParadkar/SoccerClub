@@ -4,10 +4,6 @@
     font-weight: bold;
 }
 
-.navbar-nav>li>a{
-
-}
-
 .intro-header {
     background: center center no-repeat;
     -webkit-background-size: cover;
@@ -38,32 +34,32 @@ hr.small {
     border-color: #fff;
 }
 
-/*.container {
-    width: 750px;
-}*/
-
 #mainMenu {
     position: relative;
     min-height: 50px;
     margin-bottom: 0px !important;
     border: 1px solid transparent;
     height: 20px;
-    background: rgba(255, 255, 255, 0.3);
 }
 
-.navbar-default .navbar-brand {
-    color: #f5f5f5;
-    font-weight: bold;
+.navbar-collapse{
+    background-color: black;
 }
 
-.navbar-default .navbar-nav>li>a {
+#websiteName, #websiteName:hover{
+    color: #337ab7;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
     color: #f5f5f5;
     font-weight: bold;
 }
 
 /*CSS for league-view.html*/
 .card {
-    border-radius: 30px;
+    border-radius: 30px !important;
 }
 
 .card-title{
@@ -167,17 +163,164 @@ hr.small {
 .page-header{
     font-size: 2vmax;
 }
+
+.copyright{
+    font-size: 1.6vmax;
+}
+
+.btn{
+  font-size: 1vmax !important;
+}
+
+select{
+  font-size: 1vmax !important;
+}
+
+/*CSS for leagueStats-view.html*/
+.page-header > p{
+    font-size: 2.2vmax;
+    color: white;
+}
+
+/*CSS for Menu*/
+#wrapper {
+  padding-left: 0px;
+  transition: all 0.4s ease 0s;
+}
+
+#sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 250px;
+  background: #000;
+  position: absolute;
+  height: 230px;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#wrapper.active {
+  padding-left: 0;
+}
+
+#wrapper.active #sidebar-wrapper {
+  left: 0;
+}
+
+#spy {
+    background-color: black;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 105px;
+  list-style: none;
+  /*margin: 50px;*/
+  padding: 0px;
+  margin-top: 45px;
+  margin-left: 20px;
+}
+
+.sidebar-nav li {
+  line-height: 20px;
+}
+
+.sidebar-nav li a {
+  color: white;
+  display: block;
+  text-decoration: none;
+}
+
+.sidebar-nav li a span:before {
+  position: absolute;
+  left: 0;
+  color: #41484c;
+  text-align: center;
+  width: 20px;
+  line-height: 18px;
+}
+
+.sidebar-nav li a:hover,
+.sidebar-nav li.active {
+  color: #fff;
+  background: black;
+  text-decoration: none;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    color: #fff;
+  background: black;
+  text-decoration: none;
+}
+
+.sidebar-nav li a:after{
+    color: black;
+}
+
+#menu-toggle {
+    text-decoration: none;
+    float: left;
+    color: #fff;
+    padding-right: 15px;
+}
+
+#navbar-toggle{
+  float: right;
+
+}
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover{
+  background-color: black;
+}
+
+#ddlMenuList {
+  background-color: black;
+  width: 105px;
+}
+
+.open #ddlMenuList > li > a{
+    color: white;
+}
+
+#ddlMenuList > li > a:focus, #ddlMenuList > li > a:hover{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+}
+
 /*Media Queries*/
-@media screen and (min-width: 992px){
+@media screen and (max-width:767px) {
+  #wrapper {
+    padding-left: 0px;
+  }
 
-}
+  #sidebar-wrapper {
+    left: 0;
+  }
 
-@media screen and (min-width: 768px) and (max-width: 991px){
+  #wrapper.active {
+    position: relative;
+    left: 0px;
+  }
 
-}
+  #wrapper.active #sidebar-wrapper {
+    left: 250px;
+    width: 180px;
+    top: 0px;
+    transition: all 0.4s ease 0s;
+  }
 
-@media screen and (min-width: 480px) (max-width: 767px){
-    
+  #menu-toggle {
+    display: inline-block;
+  }
+
+  .navbar-brand{
+    width: 180px;
+    transition: all 0.4s ease 0s;
+  }
 }
 
 @media screen and (max-width: 479px){
