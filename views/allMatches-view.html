@@ -60,13 +60,13 @@
 	</div>
 </div>
 	
-	<div id="tableContainer" class="container">
+	<div id="tableContainer">
 		<table ng-table="matchTable" id="myTable" class="table table-hover table-responsive" cellspacing="0" width="100%">
 			<tbody>
 			    <tr ng-repeat="all in allMatchCtrl.allMatch | filter:allMatchCtrl.filterTeamName | filter:allMatchCtrl.filterScore:allMatchCtrl.filterCondition | filter:allMatchCtrl.filterYear">
-			        <th class="left">{{all.team1.name}}</th>
+			        <th class="center">{{all.team1.name}}</th>
 			        <th class="center">{{all.score1}} - {{all.score2}}</th>
-			        <th class="right">{{all.team2.name}}</th>
+			        <th class="center">{{all.team2.name}}</th>
 			    </tr>
 			</tbody>
 		</table>
