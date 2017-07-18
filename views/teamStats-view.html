@@ -26,8 +26,8 @@
 	<br/><br/>
 	<div id="allTeamStats" class="ng-show">
 		<table ng-table="teamStatsTable" id="myTable" class="table table-hover table-responsive" cellspacing="0" width="100%"> 
-			<thead style="background-color: black;">
-				<tr style="color: white" class="center">
+			<thead>
+				<tr id="tableHeader" class="center">
 					<th class="center">TEAMS</th>
 					<th class="center" title="Played">PLD</th>
 					<th class="center" title="Won">W</th>
@@ -74,11 +74,23 @@
 <style>
 	.table th, .table td { 
      border-top: none !important; 
-     color: white;
  	}
 
  	.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  		color: black;
+  		color: red;
+	}
+
+  	tr:nth-child(odd) {
+    	background-color:#f1f1f1;
+	}
+
+	tr:nth-child(even) {
+	    background-color:#e6e6e6;
+	}
+
+	#tableHeader{
+		background-color: black;
+		color: white;
 	}
 </style>
 

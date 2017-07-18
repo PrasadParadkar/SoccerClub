@@ -17,9 +17,9 @@
 						<div class="page-header">
 							<p>Most Goals Scored By The Team</p>      
 						</div>
-						<table id="myTable" ng-table="mostGoalsTable" class="table table-responsive" cellspacing="0" width="100%"> 
-							<thead style="background-color: black;">
-								<tr style="color: white" class="center">
+						<table id="myTable" ng-table="mostGoalsTable" class="table table-hover table-responsive" cellspacing="0" width="100%"> 
+							<thead>
+								<tr id="tableHeader" class="center">
 									<th class="center">TEAMS</th>
 									<th class="center">MOST GOALS</th>
 								</tr>
@@ -36,9 +36,9 @@
 						<div class="page-header">
 							<p>Most Wins By The Team</p>      
 						</div>
-						<table id="myTable" ng-table="mostWinsTable" class="table table-responsive" cellspacing="0" width="100%"> 
-							<thead style="background-color: black;">
-								<tr style="color: white" class="center">
+						<table id="myTable" ng-table="mostWinsTable" class="table table-hover table-responsive" cellspacing="0" width="100%"> 
+							<thead>
+								<tr id="tableHeader" class="center">
 									<th class="center">TEAMS</th>
 									<th class="center">MOST WINS</th>
 								</tr>
@@ -60,8 +60,24 @@
 <style>
 	.table th, .table td { 
      border-top: none !important; 
-     color: white;
  	}
+
+ 	.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  		color: red;
+	}
+
+  	tr:nth-child(odd) {
+    	background-color:#f1f1f1;
+	}
+
+	tr:nth-child(even) {
+	    background-color:#e6e6e6;
+	}
+
+	#tableHeader{
+		background-color: black;
+		color: white;
+	}
 
 	h4{
 		color: white;
